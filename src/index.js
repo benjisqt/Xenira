@@ -1,6 +1,7 @@
 const { GatewayIntentBits, Client, Collection } = require("discord.js");
 require("dotenv").config();
 const cmdhandler = require("./utils/command-handler");
+const mongohandler = require("./utils/mongo-handler");
 const eventhandler = require("./utils/event-handler");
 const process = require("node:process");
 
@@ -34,4 +35,5 @@ process.on("uncaughtExceptionMonitor", (reason, promise) => {
 client.login(process.env.TOKEN).then(() => {
   cmdhandler(client);
   eventhandler(client);
+  mongohandler();
 });
