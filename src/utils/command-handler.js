@@ -2,20 +2,20 @@ const fs = require("fs");
 require("colors");
 
 module.exports = (client) => {
-  const commands = [];
+  const commandsArray = [];
 
   const folders = fs.readdirSync(`./src/commands`);
   for (const folder of folders) {
-    const cmds = fs
-      .readdirSync(`./src/commands`)
+    const files = fs
+      .readdirSync(`./src/commands/${folder}`)
       .filter((file) => file.endsWith(".js"));
 
-    for (const file of cmds) {
-      const cmd = require(`../commands/${folder}/${file}`);
+    for (const file of files) {
+      const command = require(`../commands/${folder}/${file}`);
 
-      client.commands.set(cmd.data.name, cmd);
+      client.commands.set(command.data.name, command);
 
-      commands.push(cmd.data.toJSON());
+      commandsArray.push(command.data.toJSON());
 
       continue;
     }
@@ -23,7 +23,7 @@ module.exports = (client) => {
 
   console.log(`🔁 Registering Commands...`.yellow);
 
-  client.application.commands.set(commands);
+  client.application.commands.set(commandsArray);
 
   console.log(`✅ Registered Commands.`.green);
 };
