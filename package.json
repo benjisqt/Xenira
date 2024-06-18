@@ -1,0 +1,23 @@
+{
+  "name": "xenira",
+  "version": "1.0.0",
+  "description": "The best multi-purpose, fully open-source Discord bot.",
+  "main": "src/index.js",
+  "scripts": {
+    "test": "nodemon"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/benjisqt/Xenira.git"
+  },
+  "author": "Benji Allan (BenjiSQT)",
+  "license": "LGPL-3.0-or-later",
+  "bugs": {
+    "url": "https://github.com/benjisqt/Xenira/issues"
+  },
+  "homepage": "https://github.com/benjisqt/Xenira#readme",
+  "dependencies": {
+    "discord.js": "^14.15.3",
+    "dotenv": "^16.4.5"
+  }
+}
